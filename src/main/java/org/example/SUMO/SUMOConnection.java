@@ -1,10 +1,6 @@
 package org.example.SUMO;
 
 import it.polito.appeal.traci.*;
-import de.tudresden.sumo.cmd.*;
-
-import java.io.IOException;
-import java.sql.Connection;
 
 public class SUMOConnection {
 
@@ -12,7 +8,10 @@ public class SUMOConnection {
     private String SUMOEXE = "C:\\Program Files (x86)\\Eclipse\\Sumo\\bin\\sumo-gui.exe";
     private String SUMOConfigFile = "C:\\Studium\\Java\\Test Pro\\TraffiTest.sumocfg";
     private SumoTraciConnection conn;
+//Default constructor
+    public SUMOConnection(){}
 
+//Starts a SUMO Connection and opens it in SUMO with the SUMO EXE and the SUMO Config file
     public void StartSUMOConnection(){
         try {
             conn = new SumoTraciConnection(SUMOEXE, SUMOConfigFile);
@@ -23,12 +22,14 @@ public class SUMOConnection {
         }
     }
 
+//Closes the SUMO Connection
     public void CloseSUMOConnection(){
 
         conn.close();
 
     }
 
+//Does 1 step in SUMO
     public void StepSUMOConnection(){
         try{
             conn.do_timestep();
@@ -37,6 +38,7 @@ public class SUMOConnection {
         }
     }
 
+//Returns the current SUMO Connection
     public SumoTraciConnection getSUMOConnection(){
         return conn;
     }
