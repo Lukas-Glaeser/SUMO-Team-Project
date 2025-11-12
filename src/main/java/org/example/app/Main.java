@@ -9,47 +9,49 @@ class Main {
         conn.StartconnectSUMO();
 
         if (conn.getSUMOConnection() == null) {
-            System.out.println("ABBRUCH!");
+            System.out.println("canceled!");
             return;
         }
 
-        try { Thread.sleep(2000); } catch (Exception e) {}
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {}
 
         Vehicles v = new Vehicles(conn.getSUMOConnection());
 
-        v.AddVehicle("auto1", 10.0);
-        v.AddVehicle("auto2", 8.0);
-        v.AddVehicle("auto3", 12.0);
+        v.AddVehicle("vehicle1", 10.0);
+        v.AddVehicle("vehicle2", 8.0);
+        v.AddVehicle("vehicle3", 12.0);
 
         int step = 0;
-        int maxSteps = 500;  // Sicherheitsgrenze
+        int maxSteps = 500;  // limit
 
-        // Läuft solange noch Autos in der Simulation sind!
+        // runs as long as there are vehicles in the simulation!
         try {
             while (step < maxSteps) {
                 conn.StepconnectSUMO();
 
-                // Prüfe ob noch Autos da sind
+                // check if there are still vehicles in the simulation
                 int minExpected = (Integer) conn.getSUMOConnection()
                         .do_job_get(Simulation.getMinExpectedNumber());
 
                 if (minExpected == 0) {
-                    System.out.println("Alle Fahrzeuge fertig!");
+                    System.out.println("All vehicles are done!");
                     break;
                 }
 
                 if (step % 20 == 0) {
-                    System.out.println("Step " + step + " - Autos übrig: " + minExpected);
+                    System.out.println("Step " + step + " - Car remaining: " + minExpected);
                 }
 
                 Thread.sleep(200);
                 step++;
             }
         } catch (Exception e) {
-            System.out.println("Fehler: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
 
-        System.out.println("\nSimulation beendet nach " + step + " Steps");
+        System.out.println("\nSimulation ended after " + step + " Steps");
         v.ShowAll();
 
         conn.CloseconnectSUMO();

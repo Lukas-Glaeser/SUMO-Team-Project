@@ -12,12 +12,12 @@ public class connectSUMO {
 
     public void StartconnectSUMO() {
         try {
-            System.out.println("Starte SUMO...");
+            System.out.println("start SUMO...");
             conn = new SumoTraciConnection(sumo, config);
             conn.runServer();
-            System.out.println("SUMO verbunden!");
+            System.out.println("SUMO is connected!");
         } catch (Exception e) {
-            System.out.println("ERROR: Konnte nicht verbinden mit SUMO");
+            System.out.println("ERROR: couldn't be connected");
             e.printStackTrace();
         }
     }
@@ -26,9 +26,9 @@ public class connectSUMO {
         if (conn != null) {
             try {
                 conn.close();
-                System.out.println("SUMO geschlossen");
+                System.out.println("SUMO closed");
             } catch (Exception e) {
-                System.out.println("Fehler beim Schließen");
+                System.out.println("Error while closing");
             }
         }
     }
@@ -38,12 +38,13 @@ public class connectSUMO {
             try {
                 conn.do_timestep();
             } catch (Exception e) {
-                System.out.println("ERROR: Konnte keinen Step machen");
+                System.out.println("ERROR: couldn't perform a step");
             }
         }
     }
 
-    public SumoTraciConnection getSUMOConnection() {
+    public SumoTraciConnection getSUMOConnection()
+    {
         return conn;
     }
 }

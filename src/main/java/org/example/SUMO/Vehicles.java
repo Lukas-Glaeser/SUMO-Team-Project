@@ -27,7 +27,7 @@ public class Vehicles {
             double speed = (double) conn.do_job_get(Vehicle.getSpeed(name));
             System.out.println(name + ": " + speed + " m/s");
         } catch (Exception e) {
-            System.out.println("Error while reading!");
+            System.out.println("Error during reading!");
         }
     }
 
