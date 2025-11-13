@@ -41,8 +41,13 @@ public class TrafficLight {
 
     //Returns the current State from te selected Traffic Light
     public String getTrafficLightState(String ID){
+        try {
+            String TLightState = (String) conn.do_job_get(Trafficlight.getCompleteRedYellowGreenDefinition(ID));
+        }catch (Exception a){
+            System.out.println("ERROR");
+        }
 
-        return "TEMP";
+            return "TEMP";
     }
 
 

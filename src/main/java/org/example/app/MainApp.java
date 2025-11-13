@@ -4,6 +4,10 @@ import it.polito.appeal.traci.*;
 import org.example.SUMO.SUMOConnection;
 //import de.tudresden.sumo.*;
 
+//Only add code that is OOP and wrapped meaning that this class only calls for methods
+//if the ide cant find the sumo or/and config file please change it in the SUMOConnection
+//change the SUMOEXE or/and SUMOConfigFile String variables to youre path
+
 class MainApp {
 
     public static void main(String[] args) {
@@ -18,17 +22,16 @@ class MainApp {
             System.out.println("ERROR cannot connect");
         }
 
+//Makes a new object for traffic lights with the current SUMO Connection
+        TrafficLight TLights = new TrafficLight(conn.getSUMOConnection());
+
 //Do 100 SUMO steps
         for (int i = 0; i < 100; i++) {
             conn.StepSUMOConnection();
         }
 
-//Makes a new object for traffic lights with the current SUMO Connection
-        TrafficLight TLights = new TrafficLight(conn.getSUMOConnection());
-
 //Calls a Method that Loads all traffic lights from the sumo config
         TLights.LoadTrafficLights();
-
 
 //Closes the SUMO Connection
         conn.CloseSUMOConnection();

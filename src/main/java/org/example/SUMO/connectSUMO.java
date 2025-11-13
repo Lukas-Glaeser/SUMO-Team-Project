@@ -2,6 +2,10 @@ package org.example.SUMO;
 
 import it.polito.appeal.traci.*;
 
+//For testing only use SUMOConnection to connect to sumo
+//This code is later not needed for the finished project
+//Remember to delete it and change the connections to other classes
+
 public class connectSUMO {
 
     private String sumo = "C:\\Program Files (x86)\\Eclipse\\Sumo\\bin\\sumo-gui.exe";

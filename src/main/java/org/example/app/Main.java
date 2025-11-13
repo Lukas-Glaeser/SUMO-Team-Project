@@ -3,6 +3,9 @@ package org.example.app;
 import org.example.SUMO.*;
 import de.tudresden.sumo.cmd.Simulation;
 
+//This is a Temp class for Testing due to being not wrapped and OOP oriented
+//if you have working code add it to the MainApp class
+
 class Main {
     public static void main(String[] args) {
         connectSUMO conn = new connectSUMO();
