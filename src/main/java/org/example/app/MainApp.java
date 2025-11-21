@@ -2,6 +2,7 @@ package org.example.app;
 import org.example.SUMO.*;
 import it.polito.appeal.traci.*;
 import org.example.SUMO.SUMOConnection;
+import javafx.*;
 //import de.tudresden.sumo.*;
 
 //Only add code that is OOP and wrapped meaning that this class only calls for methods
