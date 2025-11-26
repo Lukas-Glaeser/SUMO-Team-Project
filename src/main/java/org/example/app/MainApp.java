@@ -1,6 +1,7 @@
 package org.example.app;
 import org.example.SUMO.*;
 import org.example.SUMO.SUMOConnection;
+import javafx.scene.*;
 //import de.tudresden.sumo.*;
 
 //Only add code that is OOP and wrapped meaning that this class only calls for methods

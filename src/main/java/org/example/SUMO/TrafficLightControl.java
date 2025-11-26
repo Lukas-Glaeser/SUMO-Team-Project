@@ -14,6 +14,7 @@ public class TrafficLightControl {
 
     //Connects to the current SUMO Connection
     public TrafficLightControl(SumoTraciConnection conn){
+
         this.conn = conn;
     }
 
