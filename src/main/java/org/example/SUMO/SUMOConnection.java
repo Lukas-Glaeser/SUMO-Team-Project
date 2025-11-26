@@ -4,7 +4,7 @@ import it.polito.appeal.traci.*;
 
 public class SUMOConnection {
 
-    private final int Port = 8813;
+//    private final int Port = 8813;
     private String SUMOEXE = "C:\\Program Files (x86)\\Eclipse\\Sumo\\bin\\sumo-gui.exe";
     private String SUMOConfigFile = "C:\\Studium\\Java\\Test Pro\\TraffiTest.sumocfg";
     private SumoTraciConnection conn;
@@ -16,7 +16,11 @@ public class SUMOConnection {
         try {
             conn = new SumoTraciConnection(SUMOEXE, SUMOConfigFile);
 
-            conn.runServer(Port);
+            conn.runServer();
+
+            conn.setOrder(1);
+
+            System.out.println("SUMO connection started.");
         }catch (Exception a){
             System.out.println("ERROR didnt make connection with SUMO");
         }

@@ -20,7 +20,7 @@ class Main {
             Thread.sleep(2000);
         } catch (Exception e) {}
 
-        Vehicles v = new Vehicles(conn.getSUMOConnection());
+        VehicleControl v = new VehicleControl(conn.getSUMOConnection());
 
         v.AddVehicle("vehicle1", 10.0);
         v.AddVehicle("vehicle2", 8.0);

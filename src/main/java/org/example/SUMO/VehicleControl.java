@@ -4,14 +4,14 @@ import de.tudresden.sumo.cmd.Vehicle;
 import it.polito.appeal.traci.SumoTraciConnection;
 import java.util.List;
 
-public class Vehicles {
+public class VehicleControl {
     private SumoTraciConnection conn;
 
-    public Vehicles(SumoTraciConnection conn) {
+    public VehicleControl(SumoTraciConnection conn) {
         this.conn = conn;
     }
 
-    // add Vehicles:
+    // add VehicleControl:
     public void AddVehicle(String name, double speed) {
         try {
             conn.do_job_set(Vehicle.add(name, "car", "r0", 0, 0.0, speed, (byte) 0));
@@ -45,7 +45,7 @@ public class Vehicles {
     public void ShowAll() {
         try {
             List<String> ids = (List<String>) conn.do_job_get(Vehicle.getIDList());
-            System.out.println("Vehicles: " + ids.size());
+            System.out.println("VehicleControl: " + ids.size());
             for (String id : ids) {
                 System.out.println("  - " + id);
             }

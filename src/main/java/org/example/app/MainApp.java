@@ -1,8 +1,6 @@
 package org.example.app;
 import org.example.SUMO.*;
-import it.polito.appeal.traci.*;
 import org.example.SUMO.SUMOConnection;
-import javafx.*;
 //import de.tudresden.sumo.*;
 
 //Only add code that is OOP and wrapped meaning that this class only calls for methods
@@ -24,15 +22,18 @@ class MainApp {
         }
 
 //Makes a new object for traffic lights with the current SUMO Connection
-        TrafficLight TLights = new TrafficLight(conn.getSUMOConnection());
-
-//Do 100 SUMO steps
-        for (int i = 0; i < 100; i++) {
-            conn.StepSUMOConnection();
-        }
+        TrafficLightControl TLights = new TrafficLightControl(conn.getSUMOConnection());
 
 //Calls a Method that Loads all traffic lights from the sumo config
         TLights.LoadTrafficLights();
+
+
+//Do 100 SUMO steps
+        System.out.println("Time Steps");
+        for (int i = 0; i < 100; i++) {
+            conn.StepSUMOConnection();
+            System.out.println("Time Step: " + i);
+        }
 
 //Closes the SUMO Connection
         conn.CloseSUMOConnection();
