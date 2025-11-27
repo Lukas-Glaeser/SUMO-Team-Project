@@ -47,7 +47,6 @@ public class TrafficLightControl {
         }catch (Exception a){
             System.out.println("ERROR");
         }
-
             return "TEMP";
     }
 

@@ -12,7 +12,7 @@ The finished system ought to:
 - Lukas  
 - Elissar 
 - Malaz
-- .
+- Ebrar
 - .
 
 What we have done so far:
